@@ -2,7 +2,9 @@ package com.Sixth.aap;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -71,6 +73,12 @@ Integer sum1 =missing.stream()
 Integer sum2 = IntStream.rangeClosed(1, 10)
 .reduce(0,(x,y)->x+y );
 System.out.println(sum2-sum1);
+List<Integer> duplicateNumber = Arrays.asList(1,2,1,2,3,4,4);
+Set<Integer> unique = new HashSet<Integer>();
+List<Integer> error = duplicateNumber.stream()
+.filter(x->!unique.add(x))
+.collect(Collectors.toList());
+System.out.println(error);
 
 
    
